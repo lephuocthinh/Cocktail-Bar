@@ -13,6 +13,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
     /* My Custom */
     .center {
@@ -31,10 +32,12 @@
     body {
       margin: 0;
       background: #f3eadc url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       color: #5b4636;
       line-height: 1.5;
       user-select: none;
+      height: 100%;
+      margin: 0;
     }
 
     /* Header */
@@ -49,7 +52,8 @@
       backdrop-filter: blur(4px);
       z-index: 1000;
       border-bottom: 1.5px solid #9a8666;
-      height: 5.8vh;
+      /* height: 5.8vh; */
+      height: 7%;
     }
 
     header::before {
@@ -63,6 +67,16 @@
     header > * {
       position: relative;
       z-index: 1;
+    }
+
+    .container {
+      min-height: 100vh; /* Đảm bảo chiếm đủ chiều cao màn hình */
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1; /* Chiếm khoảng trống còn lại */
     }
 
     .nav-container {
@@ -123,7 +137,7 @@
       font-style: italic;
       font-weight: 700;
       font-size: 4.5rem;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       user-select: none;
       letter-spacing: 3px;
     }
@@ -131,7 +145,7 @@
     .banner p {
       font-size: 1.5rem;
       margin-top: 12px;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       font-style: normal;
       font-weight: 400;
       max-width: 600px;
@@ -181,7 +195,7 @@
       border: none;
       padding: 0 10px 20px;
       box-shadow: none;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       user-select: text;
     }
 
@@ -284,7 +298,7 @@
       background: transparent;
       border: none;
       box-shadow: none;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       color: #6f5c36;
       user-select: text;
     }
@@ -297,7 +311,7 @@
       letter-spacing: 2.5px;
       color: #a67c00;
       text-shadow: 1px 1px 2px #fff9e8;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
     }
 
     .signature-list {
@@ -358,25 +372,8 @@
       font-size: 0.9rem;
       background: #d1c2a1cc;
       border-top: 1.5px solid #9a8666;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       user-select: none;
-      position: absolute;    
-      bottom: 0;
-      width: 100%
-    }
-
-    /* Responsive */
-    @media (max-width: 720px) {
-
-      .menu-container,
-      .signature-section {
-        width: 95vw;
-      }
-
-      .signature-list {
-        flex-direction: column;
-        align-items: center;
-      }
     }
 
     .das-form-section {
@@ -387,7 +384,7 @@
       background: #fdfaf6;
       border: 1px solid #ddd0c0;
       border-radius: 12px;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       color: #5b4636;
       line-height: 1.6;
     }
@@ -399,7 +396,7 @@
       background: #fdfaf6;
       border: 1px solid #ddd0c0;
       border-radius: 12px;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       color: #5b4636;
       line-height: 1.6;
     }
@@ -423,7 +420,7 @@
       border: 1px solid #c0b090;
       border-radius: 6px;
       font-size: 1rem;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
     }
 
     .das-form-section p {
@@ -566,7 +563,7 @@
       width: 100%;
       padding: 10px 20px;
       font-size: 1rem;
-      font-family: 'Comic Neue', cursive;
+      font-family: 'Baloo 2', cursive;
       background-color: #d2bc85;
       color: #fff;
       border: none;
@@ -578,6 +575,103 @@
 
     .clear-btn:hover {
       background-color: #8e6800;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+
+      .menu-container,
+      .signature-section {
+        width: 95vw;
+      }
+
+      .signature-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+    } 
+
+    @media (max-width: 720px) {
+
+      .menu-container,
+      .signature-section {
+        width: 95vw;
+      }
+
+      .signature-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .das-form-section {
+        max-width: 700px;
+        /* margin: 5px auto 50px auto; */
+        margin: 200px 15px 30px 15px; 
+        padding: 30px;
+        background: #fdfaf6;
+        border: 1px solid #ddd0c0;
+        border-radius: 12px;
+        font-family: 'Baloo 2', cursive;
+        color: #5b4636;
+        line-height: 1.6;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        /* background: #d1c2a1cc; */
+        background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        border-bottom: 1.5px solid #9a8666;
+        /* height: 5.8vh; */
+        height: 10%
+      }
+    }
+
+    @media (max-width: 425px) {
+
+      .menu-container,
+      .signature-section {
+        width: 95vw;
+      }
+
+      .signature-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .das-form-section {
+        max-width: 700px;
+        /* margin: 5px auto 50px auto; */
+        margin: 200px 15px 30px 15px; 
+        padding: 30px;
+        background: #fdfaf6;
+        border: 1px solid #ddd0c0;
+        border-radius: 12px;
+        font-family: 'Baloo 2', cursive;
+        color: #5b4636;
+        line-height: 1.6;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        /* background: #d1c2a1cc; */
+        background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        border-bottom: 1.5px solid #9a8666;
+        /* height: 5.8vh; */
+        height: 10%
+      }
     }
   </style>
 </head>
@@ -595,159 +689,137 @@
     </div>
   </header>
 
-  <!-- Banner -->
-  <!-- <section class="banner" id="banner">
-    Chạm
-    <p>Thưởng Thức Cocktail - Coffee - Trà Đậm Đà</p>
-  </section> -->
+  <div class="container">
+    <main>
+    <!-- Banner -->
+    <!-- <section class="banner" id="banner">
+      Chạm
+      <p>Thưởng Thức Cocktail - Coffee - Trà Đậm Đà</p>
+    </section> -->
 
-  <!-- <section class="das-menu-section">
-    <h2>Welcome To My Litte Cocktail Bar</h2>
-    <p>
-      This drink to a lovely, wonderful, gorgeous, amazing person.<br>
-      <small>(Tụi mình dành riêng ly nước xinh xắn này cho người tuyệt vời nhất)</small>
-    </p>
-    <ul>
-      <li>
-        <div><strong>Cocktail</strong><br><small>(Có cồn nhe, và tụi mình sẽ làm theo sở thích của bạn nè)</small></div>
-        <span>79K</span>
-      </li>
-      <li>
-        <div><strong>Mocktail</strong><br><small>(Hông có cồn)</small></div><span>55K</span>
-      </li>
-      <li>
-        <div><strong>Shot</strong><br><small>(Rượu shot: Gin, Tequila, Whisky, Rhum, Vodka,...)</small></div>
-        <span>49K</span>
-      </li>
-      <li>
-        <div><strong>B55 shot</strong><br><small>(Coffee Liqueur, Baileys, Absinth)</small></div><span>49K</span>
-      </li>
-      <li>
-        <div><strong>B53 shot</strong><br><small>(Coffee Liqueur, Baileys, Vodka)</small></div><span>49K</span>
-      </li>
-      <li>
-        <div><strong>Sweetie shot</strong><br><small>(Grenadine, Sambuca, Absinth)</small></div><span>49K</span>
-      </li>
-      <li>
-        <div><strong>Red Eyes shot</strong><br><small>(Sambuca, Baileys, Grenadine)</small></div><span>49K</span>
-      </li>
-      <li>
-        <div><strong>Beer</strong><br><small>(Quán có nhiều đợt bia & giá khác nhau, bạn hỏi tụi mình để có thêm thông
-            tin nhé)</small>
-      </li>
-      <li>
-        <div><strong>Tea</strong><br><small>(Trà trái cây)</small></div><span>36K</span>
-      </li>
-      <li>
-        <div><strong>Snack ngon lành</strong><br><small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></div>
-        <span>30K</span>
-      </li>
-    </ul>
-  </section> -->
-
-  <section class="das-form-section">
-    <!-- <h2>What would you like to enjoy today?</h2> -->
-    <h2>Welcome To My Litte Cocktail Bar</h2>
-    <p class="center">
-      This drink to a lovely, wonderful, gorgeous, amazing person.<br>
-      <small>(Tụi mình dành riêng ly nước xinh xắn này cho người tuyệt vời nhất)</small>
-    </p>
-    <form id="formMenu">
-      <!-- <div class="form-group">
-        <label>
-          Name:
-          <small>(Ghi cho tui nhớ tên bạn nha)</small>
-        </label>
-        <input type="text" name="name" placeholder="Tên của bạn" style="border: none;">
-      </div> -->
-
-      <!-- <p><strong>- How was your day?</strong><br>
-        <small>(Ngày hôm nay của bạn như nào?)</small>
+    <!-- <section class="das-menu-section">
+      <h2>Welcome To My Litte Cocktail Bar</h2>
+      <p>
+        This drink to a lovely, wonderful, gorgeous, amazing person.<br>
+        <small>(Tụi mình dành riêng ly nước xinh xắn này cho người tuyệt vời nhất)</small>
       </p>
-      <div class="custom-checkbox-group">
-        <label><input type="checkbox" name="mood" value="Cool"> <span>Cool</span></label>
-        <label><input type="checkbox" name="mood" value="Best"> <span>Best</span></label>
-        <label><input type="checkbox" name="mood" value="Sad"> <span>Sad<sppan></label>
-        <label><input type="checkbox" name="mood" value="Sucks"> <span>Sucks</span></label>
-      </div> -->
+      <ul>
+        <li>
+          <div><strong>Cocktail</strong><br><small>(Có cồn nhe, và tụi mình sẽ làm theo sở thích của bạn nè)</small></div>
+          <span>79K</span>
+        </li>
+        <li>
+          <div><strong>Mocktail</strong><br><small>(Hông có cồn)</small></div><span>55K</span>
+        </li>
+        <li>
+          <div><strong>Shot</strong><br><small>(Rượu shot: Gin, Tequila, Whisky, Rhum, Vodka,...)</small></div>
+          <span>49K</span>
+        </li>
+        <li>
+          <div><strong>B55 shot</strong><br><small>(Coffee Liqueur, Baileys, Absinth)</small></div><span>49K</span>
+        </li>
+        <li>
+          <div><strong>B53 shot</strong><br><small>(Coffee Liqueur, Baileys, Vodka)</small></div><span>49K</span>
+        </li>
+        <li>
+          <div><strong>Sweetie shot</strong><br><small>(Grenadine, Sambuca, Absinth)</small></div><span>49K</span>
+        </li>
+        <li>
+          <div><strong>Red Eyes shot</strong><br><small>(Sambuca, Baileys, Grenadine)</small></div><span>49K</span>
+        </li>
+        <li>
+          <div><strong>Beer</strong><br><small>(Quán có nhiều đợt bia & giá khác nhau, bạn hỏi tụi mình để có thêm thông
+              tin nhé)</small>
+        </li>
+        <li>
+          <div><strong>Tea</strong><br><small>(Trà trái cây)</small></div><span>36K</span>
+        </li>
+        <li>
+          <div><strong>Snack ngon lành</strong><br><small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></div>
+          <span>30K</span>
+        </li>
+      </ul>
+    </section> -->
 
-      <p><strong>- Wat’s your fav spirit?</strong><br>
-        <small>(Loại rượu nền yêu thích của bạn là...)</small>
+    <section class="das-form-section">
+      <!-- <h2>What would you like to enjoy today?</h2> -->
+      <h2>Welcome To My Litte Cocktail Bar</h2>
+      <p class="center">
+        This drink to a lovely, wonderful, gorgeous, amazing person.<br>
+        <small>(Tụi mình dành riêng ly nước xinh xắn này cho người tuyệt vời nhất)</small>
       </p>
-      <div class="custom-checkbox-group">
-        <label><input type="checkbox" name="spirit" value="Gin"> <span>Gin</span></label>
-        <label><input type="checkbox" name="spirit" value="Tequila"> <span>Tequila</span></label>
-        <label><input type="checkbox" name="spirit" value="Vodka"> <span>Vodka</span></label>
-        <label><input type="checkbox" name="spirit" value="Rhum"> <span>Rum</span></label>
-        <label><input type="checkbox" name="spirit" value="Whisky"> <span>Whisky</span></label>
-        <label><input type="checkbox" name="spirit" value="Mocktail"> <span>Mocktail</span></label>
-      </div>
+      <form id="formMenu">
+        <!-- <div class="form-group">
+          <label>
+            Name:
+            <small>(Ghi cho tui nhớ tên bạn nha)</small>
+          </label>
+          <input type="text" name="name" placeholder="Tên của bạn" style="border: none;">
+        </div> -->
 
-      <p><strong>- Wat flavour are yew?</strong><br>
-        <small>(Rồi bạn thích hương vị nào ta?)</small>
-      </p>
-      <div class="custom-checkbox-group">
-        <label><input type="checkbox" name="flavour" value="Fruit"> <span>Fruit (Trái cây)</span></label>
-        <label><input type="checkbox" name="flavour" value="Herb"> <span>Herb (Thảo mộc)</span></label>
-        <label><input type="checkbox" name="flavour" value="Spice"> <span>Spice (Cay)</span></label>
-      </div>
+        <!-- <p><strong>- How was your day?</strong><br>
+          <small>(Ngày hôm nay của bạn như nào?)</small>
+        </p>
+        <div class="custom-checkbox-group">
+          <label><input type="checkbox" name="mood" value="Cool"> <span>Cool</span></label>
+          <label><input type="checkbox" name="mood" value="Best"> <span>Best</span></label>
+          <label><input type="checkbox" name="mood" value="Sad"> <span>Sad<sppan></label>
+          <label><input type="checkbox" name="mood" value="Sucks"> <span>Sucks</span></label>
+        </div> -->
 
-      <p><strong>- Da taste you lookin’ for?</strong><br>
-        <small>(Còn mùi vị bạn đang tìm kiếm là gì ha?)</small>
-      </p>
-      <div class="custom-checkbox-group">
-        <label><input type="checkbox" name="taste" value="Sweet"> <span>Sweet (Ngọt)</span></label>
-        <label><input type="checkbox" name="taste" value="Creamy"> <span>Creamy (Béo)</span></label>
-        <label><input type="checkbox" name="taste" value="Spicy"> <span>Spicy (Cay)</span></label>
-        <label><input type="checkbox" name="taste" value="Sour"> <span>Sour (Chua)</span></label>
-      </div>
-      <button type="button" class="clear-btn center">Xóa lựa chọn</button>
-    </form>
-    <!-- <p class="note">
-      HELLO,,,<br>
-      Dành cho những ngày bạn iu cần rịu nhưng lại quá bận, thì Das_h hiện tại đã có ly mang về và giao hàng tận nơi rồi đó nha.<br>
-      Bạn iu cứ inbox Fanpage: DASH hoặc hotline: <strong>0903.692.814</strong> để được hỗ trợ nhiệt tình nhé.
-    </p> -->
-    <p class="footer center">IT’S GOOD TO SEE YOU!</p>
-  </section>
-
-  
-
-  <!-- Menu Section -->
-  <!-- <section class="menu-section" id="menu-section">
-    <div class="tabs">
-      <div class="tab active" data-tab="cocktail">Cocktail</div>
-      <div class="tab" data-tab="coffee">Coffee</div>
-      <div class="tab" data-tab="tea">Trà</div>
-    </div>
-
-    <div class="menu-container">
-      <div class="menu-items active" id="cocktail">
-        <div class="menu-item">
-          <div class="item-header">
-            <span class="item-name">Cosmopolitan</span>
-            <span class="item-price">95,000 VND</span>
-            <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-          </div>
-          <div class="item-detail">
-            <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-            <p>Hương cam và chanh tươi, hấp dẫn.</p>
-          </div>
+        <p><strong>- Wat’s your fav spirit?</strong><br>
+          <small>(Loại rượu nền yêu thích của bạn là...)</small>
+        </p>
+        <div class="custom-checkbox-group">
+          <label><input type="checkbox" name="spirit" value="Gin"> <span>Gin</span></label>
+          <label><input type="checkbox" name="spirit" value="Tequila"> <span>Tequila</span></label>
+          <label><input type="checkbox" name="spirit" value="Vodka"> <span>Vodka</span></label>
+          <label><input type="checkbox" name="spirit" value="Rhum"> <span>Rum</span></label>
+          <label><input type="checkbox" name="spirit" value="Whisky"> <span>Whisky</span></label>
+          <label><input type="checkbox" name="spirit" value="Mocktail"> <span>Mocktail</span></label>
         </div>
 
-        <div class="menu-item">
-          <div class="item-header">
-            <span class="item-name">Mojito</span>
-            <span class="item-price">90,000 VND</span>
-            <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-          </div>
-          <div class="item-detail">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-            <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
-          </div>
+        <p><strong>- Wat flavour are yew?</strong><br>
+          <small>(Rồi bạn thích hương vị nào ta?)</small>
+        </p>
+        <div class="custom-checkbox-group">
+          <label><input type="checkbox" name="flavour" value="Fruit"> <span>Fruit (Trái cây)</span></label>
+          <label><input type="checkbox" name="flavour" value="Herb"> <span>Herb (Thảo mộc)</span></label>
+          <label><input type="checkbox" name="flavour" value="Spice"> <span>Spice (Cay)</span></label>
         </div>
 
-        <div class="menu-item">
+        <p><strong>- Da taste you lookin’ for?</strong><br>
+          <small>(Còn mùi vị bạn đang tìm kiếm là gì ha?)</small>
+        </p>
+        <div class="custom-checkbox-group">
+          <label><input type="checkbox" name="taste" value="Sweet"> <span>Sweet (Ngọt)</span></label>
+          <label><input type="checkbox" name="taste" value="Creamy"> <span>Creamy (Béo)</span></label>
+          <label><input type="checkbox" name="taste" value="Spicy"> <span>Spicy (Cay)</span></label>
+          <label><input type="checkbox" name="taste" value="Sour"> <span>Sour (Chua)</span></label>
+        </div>
+        <button type="button" class="clear-btn center">Xóa lựa chọn</button>
+      </form>
+      <!-- <p class="note">
+        HELLO,,,<br>
+        Dành cho những ngày bạn iu cần rịu nhưng lại quá bận, thì Das_h hiện tại đã có ly mang về và giao hàng tận nơi rồi đó nha.<br>
+        Bạn iu cứ inbox Fanpage: DASH hoặc hotline: <strong>0903.692.814</strong> để được hỗ trợ nhiệt tình nhé.
+      </p> -->
+      <p class="footer center">IT’S GOOD TO SEE YOU!</p>
+    </section>
+
+    
+
+    <!-- Menu Section -->
+    <!-- <section class="menu-section" id="menu-section">
+      <div class="tabs">
+        <div class="tab active" data-tab="cocktail">Cocktail</div>
+        <div class="tab" data-tab="coffee">Coffee</div>
+        <div class="tab" data-tab="tea">Trà</div>
+      </div>
+
+      <div class="menu-container">
+        <div class="menu-items active" id="cocktail">
+          <div class="menu-item">
             <div class="item-header">
               <span class="item-name">Cosmopolitan</span>
               <span class="item-price">95,000 VND</span>
@@ -758,7 +830,7 @@
               <p>Hương cam và chanh tươi, hấp dẫn.</p>
             </div>
           </div>
-  
+
           <div class="menu-item">
             <div class="item-header">
               <span class="item-name">Mojito</span>
@@ -772,168 +844,194 @@
           </div>
 
           <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Cosmopolitan</span>
-              <span class="item-price">95,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              <div class="item-header">
+                <span class="item-name">Cosmopolitan</span>
+                <span class="item-price">95,000 VND</span>
+                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              </div>
+              <div class="item-detail">
+                <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
+                <p>Hương cam và chanh tươi, hấp dẫn.</p>
+              </div>
             </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-              <p>Hương cam và chanh tươi, hấp dẫn.</p>
+    
+            <div class="menu-item">
+              <div class="item-header">
+                <span class="item-name">Mojito</span>
+                <span class="item-price">90,000 VND</span>
+                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              </div>
+              <div class="item-detail">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
+                <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
+              </div>
             </div>
-          </div>
-  
+
+            <div class="menu-item">
+              <div class="item-header">
+                <span class="item-name">Cosmopolitan</span>
+                <span class="item-price">95,000 VND</span>
+                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              </div>
+              <div class="item-detail">
+                <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
+                <p>Hương cam và chanh tươi, hấp dẫn.</p>
+              </div>
+            </div>
+    
+            <div class="menu-item">
+              <div class="item-header">
+                <span class="item-name">Mojito</span>
+                <span class="item-price">90,000 VND</span>
+                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              </div>
+              <div class="item-detail">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
+                <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-header">
+                <span class="item-name">Cosmopolitan</span>
+                <span class="item-price">95,000 VND</span>
+                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              </div>
+              <div class="item-detail">
+                <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
+                <p>Hương cam và chanh tươi, hấp dẫn.</p>
+              </div>
+            </div>
+    
+            <div class="menu-item">
+              <div class="item-header">
+                <span class="item-name">Mojito</span>
+                <span class="item-price">90,000 VND</span>
+                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              </div>
+              <div class="item-detail">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
+                <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-header">
+                <span class="item-name">Cosmopolitan</span>
+                <span class="item-price">95,000 VND</span>
+                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              </div>
+              <div class="item-detail">
+                <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
+                <p>Hương cam và chanh tươi, hấp dẫn.</p>
+              </div>
+            </div>
+    
+            <div class="menu-item">
+              <div class="item-header">
+                <span class="item-name">Mojito</span>
+                <span class="item-price">90,000 VND</span>
+                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+              </div>
+              <div class="item-detail">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
+                <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
+              </div>
+            </div>
+        </div>
+
+        <div class="menu-items" id="coffee">
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Mojito</span>
-              <span class="item-price">90,000 VND</span>
+              <span class="item-name">Espresso</span>
+              <span class="item-price">40,000 VND</span>
               <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
             </div>
             <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-              <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
+              <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=400&q=80" alt="Espresso" />
+              <p>Cà phê đậm đà, nguyên chất.</p>
             </div>
           </div>
 
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Cosmopolitan</span>
-              <span class="item-price">95,000 VND</span>
+              <span class="item-name">Cappuccino</span>
+              <span class="item-price">50,000 VND</span>
               <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
             </div>
             <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-              <p>Hương cam và chanh tươi, hấp dẫn.</p>
+              <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=400&q=80" alt="Cappuccino" />
+              <p>Cà phê với lớp bọt sữa mịn màng.</p>
             </div>
-          </div>
-  
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Mojito</span>
-              <span class="item-price">90,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-              <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Cosmopolitan</span>
-              <span class="item-price">95,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-              <p>Hương cam và chanh tươi, hấp dẫn.</p>
-            </div>
-          </div>
-  
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Mojito</span>
-              <span class="item-price">90,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-              <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
-            </div>
-          </div>
-      </div>
-
-      <div class="menu-items" id="coffee">
-        <div class="menu-item">
-          <div class="item-header">
-            <span class="item-name">Espresso</span>
-            <span class="item-price">40,000 VND</span>
-            <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-          </div>
-          <div class="item-detail">
-            <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=400&q=80" alt="Espresso" />
-            <p>Cà phê đậm đà, nguyên chất.</p>
           </div>
         </div>
 
-        <div class="menu-item">
-          <div class="item-header">
-            <span class="item-name">Cappuccino</span>
-            <span class="item-price">50,000 VND</span>
-            <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+        <div class="menu-items" id="tea">
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Trà Ô Long</span>
+              <span class="item-price">45,000 VND</span>
+              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+            </div>
+            <div class="item-detail">
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Trà Ô Long" />
+              <p>Trà Ô Long thơm nhẹ, thanh mát.</p>
+            </div>
           </div>
-          <div class="item-detail">
-            <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=400&q=80" alt="Cappuccino" />
-            <p>Cà phê với lớp bọt sữa mịn màng.</p>
+
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Trà Hoa Nhài</span>
+              <span class="item-price">50,000 VND</span>
+              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
+            </div>
+            <div class="item-detail">
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Trà Hoa Nhài" />
+              <p>Hương hoa nhài dịu dàng, thơm ngát.</p>
+            </div>
           </div>
         </div>
       </div>
+    </section> -->
 
-      <div class="menu-items" id="tea">
-        <div class="menu-item">
-          <div class="item-header">
-            <span class="item-name">Trà Ô Long</span>
-            <span class="item-price">45,000 VND</span>
-            <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-          </div>
-          <div class="item-detail">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Trà Ô Long" />
-            <p>Trà Ô Long thơm nhẹ, thanh mát.</p>
-          </div>
+    <!-- Signature Section -->
+    <!-- <section class="signature-section" id="signature-section">
+      <h2>Món Signature</h2>
+      <div class="signature-list">
+        <div class="signature-card">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
+          <h3>Chạm Special Coffee</h3>
+          <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
         </div>
-
-        <div class="menu-item">
-          <div class="item-header">
-            <span class="item-name">Trà Hoa Nhài</span>
-            <span class="item-price">50,000 VND</span>
-            <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-          </div>
-          <div class="item-detail">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Trà Hoa Nhài" />
-            <p>Hương hoa nhài dịu dàng, thơm ngát.</p>
-          </div>
+        <div class="signature-card">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
+          <h3>Cocktail Sunset</h3>
+          <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
+        </div>
+        <div class="signature-card">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
+          <h3>Chạm Special Coffee</h3>
+          <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
+        </div>
+        <div class="signature-card">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
+          <h3>Cocktail Sunset</h3>
+          <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
+        </div>
+        <div class="signature-card">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
+          <h3>Chạm Special Coffee</h3>
+          <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
+        </div>
+        <div class="signature-card">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
+          <h3>Cocktail Sunset</h3>
+          <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
         </div>
       </div>
-    </div>
-  </section> -->
-
-  <!-- Signature Section -->
-  <!-- <section class="signature-section" id="signature-section">
-    <h2>Món Signature</h2>
-    <div class="signature-list">
-      <div class="signature-card">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
-        <h3>Chạm Special Coffee</h3>
-        <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
-      </div>
-      <div class="signature-card">
-        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
-        <h3>Cocktail Sunset</h3>
-        <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
-      </div>
-      <div class="signature-card">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
-        <h3>Chạm Special Coffee</h3>
-        <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
-      </div>
-      <div class="signature-card">
-        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
-        <h3>Cocktail Sunset</h3>
-        <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
-      </div>
-      <div class="signature-card">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
-        <h3>Chạm Special Coffee</h3>
-        <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
-      </div>
-      <div class="signature-card">
-        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
-        <h3>Cocktail Sunset</h3>
-        <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
-      </div>
-    </div>
-  </section> -->
+    </section> -->
+    </main>
+  </div>
 
   <!-- Footer -->
   <footer id="footer">
