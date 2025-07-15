@@ -5,609 +5,1020 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Litte Cocktail Bar</title>
-  <style>
-    /* @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Playfair+Display&display=swap'); */
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <style>    
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Courgette&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
-    /* My Custom */
-    .center {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+/* My Custom */
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-    /* Reset */
-    * {
-      box-sizing: border-box;
-    }
+/* Reset */
+* {
+    box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      background: #f3eadc url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat;
-      font-family: 'Baloo 2', cursive;
-      color: #5b4636;
-      line-height: 1.5;
-      user-select: none;
-      height: 100%;
-      margin: 0;
-    }
+body {
+    margin: 0;
+    background: #f3eadc url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat;
+    font-family: 'Baloo 2', cursive;
+    color: #5b4636;
+    line-height: 1.5;
+    user-select: none;
+    height: 100%;
+    margin: 0;
+}
 
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      /* background: #d1c2a1cc; */
-      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-      backdrop-filter: blur(4px);
-      z-index: 1000;
-      border-bottom: 1.5px solid #9a8666;
-      /* height: 5.8vh; */
-      height: 7%;
-    }
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #bf82005e;
+    /* background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    /* border-bottom: 1.5px solid #9a8666; */
+    /* height: 5.8vh; */
+    /* height: 7%; */
+}
 
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(121, 121, 121, 0.35); /* Màu overlay */
-      z-index: 0; /* dưới nội dung header */
-    }
-    
-    header > * {
-      position: relative;
-      z-index: 1;
-    }
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(211, 211, 211, 0.389); /* Màu overlay */
+    z-index: 0; /* dưới nội dung header */
+}
 
-    .container {
-      min-height: 100vh; /* Đảm bảo chiếm đủ chiều cao màn hình */
-      display: flex;
-      flex-direction: column;
-    }
+header > * {
+    position: relative;
+    z-index: 1;
+}
 
-    main {
-      flex: 1; /* Chiếm khoảng trống còn lại */
-    }
+.container {
+    min-height: 100vh; /* Đảm bảo chiếm đủ chiều cao màn hình */
+    display: flex;
+    flex-direction: column;
+}
 
-    .nav-container {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-    }
+main {
+    flex: 1; /* Chiếm khoảng trống còn lại */
+}
 
-    .logo {
-      /* font-family: 'Pacifico', cursive; */
-      font-family: 'Dancing Script', cursive;
-      /* font-family: 'Great Vibes', cursive; */
-      /* font-family: 'Lobster', cursive; */
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
 
-      font-size: 2.8rem;
-      color: #dfd2ad;
-      text-shadow: 1px 1px 0 #5a3d08;
-      letter-spacing: 2px;
-      font-weight: 700;
-      width: 100%
-    }
+.logo {
+    /* font-family: 'Pacifico', cursive; */
+    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Great Vibes', cursive; */
+    /* font-family: 'Lobster', cursive; */
 
-    nav a {
-      margin-left: 25px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #000000;
-      text-shadow: 0 1px 0 #fff9e8;
-      transition: color 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
-      border-bottom: 2px transparent;
-      padding-bottom: 3px;
-    }
+    font-size: 2.8rem;
+    color: #ffe494;
+    text-shadow: 5px 5px 15px #000000;
+    letter-spacing: 2px;
+    font-weight: 700;
+    width: 100%
+}
 
-    nav a:hover,
-    nav a.active {
-      color: #6d5d29;
-      /* border-bottom-color: #a67c00; */
-    }
+nav a {
+    margin-left: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #dfd2ad;
+    text-shadow: 0 1px 0 #5a3d08;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 2px transparent;
+    padding-bottom: 3px;
+}
 
-    /* Banner */
-    .banner {
-      height: 5.8vh;
-      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      /* padding: 0 20px; */
-      /* margin-top: 64px; */
-      color: #a67c00;
-      text-shadow: 1px 1px 4px #fff9e8;
-      font-style: italic;
-      font-weight: 700;
-      font-size: 4.5rem;
-      font-family: 'Baloo 2', cursive;
-      user-select: none;
-      letter-spacing: 3px;
-    }
+nav a:hover,
+nav a.active {
+    color: #f0cb51;
+    /* border-bottom-color: #a67c00; */
+}
 
-    .banner p {
-      font-size: 1.5rem;
-      margin-top: 12px;
-      font-family: 'Baloo 2', cursive;
-      font-style: normal;
-      font-weight: 400;
-      max-width: 600px;
-      color: #6f5c36cc;
-      text-shadow: 1px 1px 3px #fff9e8;
-    }
+.banner {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+}
 
-    /* Tabs */
-    .tabs {
-      display: flex;
-      justify-content: center;
-      margin: 40px 0 10px;
-    }
+/* Video phủ nền */
+.banner video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+  height: 70vh;
+  filter: blur(20px);
+  /* transform: scale(3.05); */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
 
-    .tab {
-      padding: 10px 28px;
-      cursor: pointer;
-      color: #806633;
-      font-weight: 600;
-      font-size: 1.3rem;
-      background: transparent;
-      border: none;
-      border-radius: 10px 10px 0 0;
-      transition: color 0.3s ease;
-      user-select: none;
-      margin: 0 10px;
-      letter-spacing: 0.7px;
-      box-shadow: none;
-    }
+/* Nội dung trên video */
+.banner-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  height: 70vh;
+}
 
-    .tab:hover {
-      color: #a67c00;
-    }
+/* Tiêu đề */
+.banner-content h1 {
+  color: #000000;
+  /* margin-top: 110px; */
+  text-shadow: 5px 5px 10px #e7e5e0;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 4rem;
+  font-family: 'Dancing Script', cursive;
+  user-select: none;
+  letter-spacing: 3px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 10px !important;
+}
 
-    .tab.active {
-      color: #a67c00;
-      font-weight: 700;
-      text-decoration: underline;
-    }
+/* Slogan */
+.banner-content p {
+  font-size: 2rem;
+  margin-top: 5px !important;
+  font-family: 'Dancing Script', cursive;
+  font-style: normal;
+  font-weight: 400;
+  max-width: 600px;
+  color: #000000cc;
+  text-shadow: 5px 5px 10px #ffffff;
+}
 
-    /* Menu container */
-    .menu-container {
-      width: 80vw;
-      max-width: 900px;
-      margin: 0 auto 50px;
-      background: transparent;
-      border: none;
-      padding: 0 10px 20px;
-      box-shadow: none;
-      font-family: 'Baloo 2', cursive;
-      user-select: text;
-    }
+/* Section Signature */
+/* .signature-section {
+    width: 80vw;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0 10px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-family: 'Baloo 2', cursive;
+    color: #6f5c36;
+    user-select: text;
+}
 
-    /* Menu items list */
-    .menu-items {
-      display: none;
-    }
+.signature-section h2 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin-bottom: 28px;
+    letter-spacing: 2.5px;
+    color: #a67c00;
+    text-shadow: 1px 1px 2px #fff9e8;
+    font-family: 'Baloo 2', cursive;
+}
 
-    .menu-items.active {
-      display: block;
-    }
+.signature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    justify-content: center;
+}
 
-    /* Single menu item */
-    .menu-item {
-      border-bottom: 1px dashed #a67c0055;
-      padding: 15px 0;
-      cursor: default;
-      position: relative;
-    }
+.signature-card {
+    background: transparent;
+    border-radius: 0;
+    width: 270px;
+    padding: 0;
+    box-shadow: none;
+    cursor: default;
+    transition: none;
+    user-select: none;
+}
 
-    .menu-item:last-child {
-      border-bottom: none;
-    }
+.signature-card:hover {
+    transform: none;
+    box-shadow: none;
+}
 
-    /* Item header with toggle */
-    .item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #7a5f2e;
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: 0.3px;
-    }
+.signature-card img {
+    width: 100%;
+    height: 170px;
+    border-radius: 0;
+    object-fit: cover;
+    margin-bottom: 10px;
+    user-select: none;
+    box-shadow: none;
+}
 
-    .item-price {
-      font-style: italic;
-      color: #a67c00;
-      font-weight: 500;
-      font-size: 1rem;
-      margin-left: auto;
-      white-space: nowrap;
-    }
+.signature-card h3 {
+    margin: 0 0 6px;
+    font-weight: 700;
+    color: #7a5f2e;
+    letter-spacing: 0.8px;
+    font-size: 1.25rem;
+}
 
-    .toggle-btn {
-      background: transparent;
-      border: none;
-      color: #a67c00;
-      font-weight: 700;
-      cursor: pointer;
-      user-select: none;
-      font-size: 22px;
-      line-height: 1;
-      padding: 0 6px;
-      margin-left: 14px;
-      transition: color 0.3s ease;
-    }
+.signature-card p {
+    font-style: italic;
+    font-weight: 500;
+    color: #5b4636;
+    font-size: 1rem;
+    line-height: 1.4;
+} */
 
-    .toggle-btn:hover {
-      color: #8e6800;
-    }
+/* Section Wrapper */
+.signature-section {
+  /* background: #f5f5f5; */
+  padding: 30px;
+  text-align: center;
+}
 
-    .toggle-btn:focus {
-      outline: none;
-      box-shadow: 0 0 8px #ffe875;
-    }
+/* Title */
+.signature-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: 'Courgette', sans-serif;
+  color: #a67c00;
+  text-shadow: 0px 0px 5px rgb(255, 255, 255);
+}
 
-    /* Item detail hidden by default */
-    .item-detail {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, padding 0.5s ease;
-      padding: 0 5px;
-      margin-top: 12px;
-      color: #5b4636;
-      font-style: italic;
-      font-weight: 500;
-    }
+/* Slide Container */
+.slide-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 80px; */
+  margin: 20px auto;
+  /* max-width: 100%; */
+  max-width: 900px;
+  height: 400px;
+  background: #fff;
+  border-radius: 20px;
+  /* padding: 40px 60px; */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 30%);
+}
 
-    .menu-item.expanded .item-detail {
-      max-height: 350px;
-      padding-top: 12px;
-    }
+/* Text */
+.slide-text {
+  flex: 1;
+  text-align: left;
+}
 
-    .item-detail img {
-      width: 100%;
-      border-radius: 14px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 6px #a67c0011;
-      object-fit: cover;
-      user-select: none;
-    }
+.slide-text h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4.5rem;
+  color: #222;
+  /* margin-bottom: 30px; */
+  margin: 0 !important;
+  text-shadow: 5px 5px 10px #ffe8a2;
+}
 
-    /* Section Signature */
-    .signature-section {
-      width: 80vw;
-      max-width: 900px;
-      margin: 0 auto 60px;
-      padding: 0 10px;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      font-family: 'Baloo 2', cursive;
-      color: #6f5c36;
-      user-select: text;
-    }
+.slide-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  max-height: 225px;
+}
 
-    .signature-section h2 {
-      text-align: center;
-      font-weight: 800;
-      font-size: 2.2rem;
-      margin-bottom: 28px;
-      letter-spacing: 2.5px;
-      color: #a67c00;
-      text-shadow: 1px 1px 2px #fff9e8;
-      font-family: 'Baloo 2', cursive;
-    }
+.slide-text ul li {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Mô tả */
+.slide-text .description {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* Image */
+.slide-image {
+  flex-shrink: 0;
+  /* width: 100%; */
+  /* height: 100%; */
+  /* display: flex;
+  justify-content: center; */
+}
+
+.slide-image img {
+  max-width: 380px;
+  height: auto;
+  border-radius: 16px;
+  margin: 10px 10px 1px 10px;
+  box-shadow: 0 0px 10px rgba(224, 191, 27, 0.36);
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Swiper buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #a67c00 !important;
+}
+
+.swiper-slide {
+  opacity: 1 !important;
+}
+
+/* .swiper-slide::before,
+.swiper-slide::after {
+  display: none !important;
+} */
+
+.swiper-slide {
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 28px 15px;
+    color: #8b6f35;
+    font-style: italic;
+    font-size: 0.9rem;
+    background: #d1c2a1cc;
+    /* border-top: 1.5px solid #9a8666; */
+    font-family: 'Baloo 2', cursive;
+    user-select: none;
+}
+
+.das-form-section {
+    max-width: 700px;
+    margin: 40px auto 50px auto;
+    /* margin: 200px auto; */
+    padding: 30px;
+    background: #fdfaf6;
+    border: 1px solid #ddd0c0;
+    border-radius: 12px;
+    font-family: 'Baloo 2', cursive;
+    color: #5b4636;
+    line-height: 1.6;
+}
+
+.das-menu-section {
+    max-width: 700px;
+    margin: 50px auto 20px auto;
+    padding: 30px;
+    background: #fdfaf6;
+    border: 1px solid #ddd0c0;
+    border-radius: 12px;
+    font-family: 'Baloo 2', cursive;
+    color: #5b4636;
+    line-height: 1.6;
+}
+
+.das-form-section h2,
+.das-menu-section h2 {
+    text-align: center;
+    font-family: 'Courgette', cursive;
+    font-size: 2.2rem;
+    color: #a67c00;
+    margin-bottom: 20px;
+}
+
+.das-form-section form .form-group {
+    margin-bottom: 20px;
+}
+
+.das-form-section input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #c0b090;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Baloo 2', cursive;
+}
+
+.das-form-section p {
+    margin: 30px 0 13px;
+}
+
+.das-form-section small,
+.das-menu-section small {
+    font-size: 1rem;
+    color: #7b6b54;
+}
+
+.das-form-section input[type="text"]:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.checkbox-group input {
+    margin-right: 6px;
+}
+
+.das-form-section .note {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #6a5b45;
+}
+
+.das-menu-section p {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.das-menu-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.das-menu-section ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    /* border-bottom: 1px dashed #d2c2ad; */
+    padding: 15px 0;
+    font-size: 1rem;
+}
+
+.das-menu-section ul li strong {
+    font-weight: 600;
+    color: #5b4636;
+}
+
+.das-menu-section ul li span {
+    font-weight: 600;
+    color: #a67c00;
+    white-space: nowrap;
+    font-size: 25px;
+}
+
+.das-menu-section .footer {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+    color: #7a5f2e;
+    font-size: 1rem;
+}
+
+/* Custom Checkbox Không conflict */
+.custom-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: 15px;
+}
+
+.custom-checkbox-group label {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.custom-checkbox-group input[type="checkbox"] {
+    /* Ẩn checkbox mặc định */
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Vẽ ô vuông trên SPAN */
+.custom-checkbox-group label span::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d4d4d4;
+    border-radius: 4px;
+    background-color: #fffdf7;
+    margin-right: 8px;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+/* Khi CHECKED, đổi màu ô và thêm tick */
+.custom-checkbox-group input[type="checkbox"]:checked+span::before {
+    /* background-color: #a67c00; */
+    /* border-color: #a67c00; */
+}
+
+.custom-checkbox-group input[type="checkbox"]:checked+span::after {
+    content: "✓";
+    color: #a67c00;
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* khoảng cách giữa nút */
+    margin-top: 40px;
+    flex-wrap: wrap; /* nếu màn hình hẹp tự xuống hàng */
+}
+
+.clear-btn {
+    display: inline-flex;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Baloo 2', cursive;
+    background-color: #a67c00;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 62.5%;
+}
+
+.clear-btn:hover {
+    background-color: #9a8649;
+}
+
+.random-btn {
+    display: inline-flex;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Baloo 2', cursive;
+    background-color: #a62700;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 35%;
+}
+.random-btn:hover {
+    background-color: #9a462c;
+}
+
+.menu-section {
+  max-width: 700px;
+  margin: 40px auto 40px auto;
+  background: #f9f6ef;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: 'Baloo 2', cursive;
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.menu-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: #a67c00;
+  font-family: 'Courgette', cursive;
+}
+.menu-header p {
+  color: #555;
+}
+
+.menu-header small {
+    font-size: 1rem;
+    color: #7b6b54;
+}
+
+.menu-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.menu-tabs:focus,
+.menu-tabs *:focus {
+  outline: none;
+}
+
+.tab {
+  color: #5a3d08;
+  background: #f9f6ef;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.5rem;
+}
+.tab.active {
+  color: #dac585;
+}
+
+.menu-content {
+  /* Đảm bảo nó chiếm toàn bộ chiều ngang container */
+  width: 100%;
+}
+
+.tab-content {
+  display: none;
+  max-height: 980px; /*600px, 750px*/
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.tab-content::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.item-info p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.item-info small {
+    font-size: 1rem;
+    color: #7b6b54;
+}
+
+.price-button {
+  background: none;
+  color: #5a3d08;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 0;
+  font-weight: bold;
+  transition: color 0.3s;
+  font-family: 'Baloo 2', cursive;
+  margin-bottom: 30px;
+}
+.price-button:hover {
+  color: #dac585;
+}
+
+.more-detail {
+  background: none;
+  color: #5a3d08;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s;
+  font-family: 'Baloo 2', cursive;
+  margin-bottom: 30px;
+}
+
+.more-detail:hover {
+  color: #dac585;
+}
+
+
+/* Mô tả ẩn */
+.item-detail {
+  display: none;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: #333;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.item-detail img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.collapse-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 5px 10px;
+  background: none;
+  border: 1px solid #f9f6ef;
+  color: #5a3d08;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Baloo 2', cursive;
+}
+
+.collapse-button:hover {
+  color: #a57110;
+}
+
+.scrollable-tabs {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
+.scrollable-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-tabs .tab {
+  flex: 0 0 auto;
+}
+
+.section-with-video {
+  position: relative;
+  overflow: hidden; /* video không tràn ra ngoài */
+}
+
+.section-with-video video.section-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none; /* không che click */
+  filter: blur(20px);
+  /* transform: scale(3.05); */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: #a67c00 !important;
+}
+
+/* nội dung Section sẽ nằm trên video */
+#bespoke-menu-section {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  box-shadow: 15px 15px 25px rgb(0 0 0 / 40%);
+}
+
+#tabmenu-section {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  box-shadow: 15px 15px 25px rgb(0 0 0 / 40%);
+}
+
+#signature-section {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .slide-container {
+    flex-direction: column;
+    height: auto;
+    padding: 30px;
+    /* gap: 40px; */
+    /* margin: 20px; */
+    max-width: 380px;
+  }
+
+  .slide-image img {
+    max-width: 380px;
+    height: auto;
+    border-radius: 16px;
+    margin: 10px 0px -5px;
+    box-shadow: 0 0px 10px rgba(224, 191, 27, 0.36);
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .slide-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
 
     .signature-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 22px;
-      justify-content: center;
-    }
-
-    .signature-card {
-      background: transparent;
-      border-radius: 0;
-      width: 270px;
-      padding: 0;
-      box-shadow: none;
-      cursor: default;
-      transition: none;
-      user-select: none;
-    }
-
-    .signature-card:hover {
-      transform: none;
-      box-shadow: none;
-    }
-
-    .signature-card img {
-      width: 100%;
-      height: 170px;
-      border-radius: 0;
-      object-fit: cover;
-      margin-bottom: 10px;
-      user-select: none;
-      box-shadow: none;
-    }
-
-    .signature-card h3 {
-      margin: 0 0 6px;
-      font-weight: 700;
-      color: #7a5f2e;
-      letter-spacing: 0.8px;
-      font-size: 1.25rem;
-    }
-
-    .signature-card p {
-      font-style: italic;
-      font-weight: 500;
-      color: #5b4636;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 28px 15px;
-      color: #8b6f35;
-      font-style: italic;
-      font-size: 0.9rem;
-      background: #d1c2a1cc;
-      border-top: 1.5px solid #9a8666;
-      font-family: 'Baloo 2', cursive;
-      user-select: none;
+        flex-direction: column;
+        align-items: center;
     }
 
     .das-form-section {
-      max-width: 700px;
-      /* margin: 5px auto 50px auto; */
-      margin: 200px auto;
-      padding: 30px;
-      background: #fdfaf6;
-      border: 1px solid #ddd0c0;
-      border-radius: 12px;
-      font-family: 'Baloo 2', cursive;
-      color: #5b4636;
-      line-height: 1.6;
-    }
-    
-    .das-menu-section {
-      max-width: 700px;
-      margin: 50px auto 5px auto;
-      padding: 30px;
-      background: #fdfaf6;
-      border: 1px solid #ddd0c0;
-      border-radius: 12px;
-      font-family: 'Baloo 2', cursive;
-      color: #5b4636;
-      line-height: 1.6;
+        max-width: 100%;
+        /* margin: 5px auto 50px auto; */
+        margin: 120px 20px 30px 20px;
+        padding: 30px;
+        background: #fdfaf6;
+        border: 1px solid #ddd0c0;
+        border-radius: 12px;
+        font-family: 'Baloo 2', cursive;
+        color: #5b4636;
+        line-height: 1.6;
     }
 
-    .das-form-section h2,
-    .das-menu-section h2 {
-      text-align: center;
-      font-family: 'Courgette', cursive;
-      font-size: 2.2rem;
-      color: #a67c00;
-      margin-bottom: 20px;
+    .menu-section {
+        max-width: 100%;
+        margin: 40px 20px 40px 20px;
+        background: #f9f6ef;
+        border-radius: 8px;
+        padding: 20px;
+        font-family: 'Baloo 2', cursive;
     }
 
-    .das-form-section form .form-group {
-      margin-bottom: 20px;
+    .slide-container {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+        /* gap: 40px; */
+        /* margin: 20px; */
     }
 
-    .das-form-section input[type="text"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #c0b090;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: 'Baloo 2', cursive;
+    .slide-image img {
+        max-width: 380px;
+        height: auto;
+        border-radius: 16px;
+        margin: 10px 0px -5px;
+        box-shadow: 0 0px 10px rgba(224, 191, 27, 0.36);
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 720px) {
+
+    .signature-list {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .das-form-section p {
-      margin: 30px 0 13px;
+    .das-form-section {
+        max-width: 100%;
+        /* margin: 5px auto 50px auto; */
+        margin: 120px 20px 30px 20px;
+        padding: 30px;
+        background: #fdfaf6;
+        border: 1px solid #ddd0c0;
+        border-radius: 12px;
+        font-family: 'Baloo 2', cursive;
+        color: #5b4636;
+        line-height: 1.6;
     }
 
-    .das-form-section small,
-    .das-menu-section small {
-      font-size: 1rem;
-      color: #7b6b54;
+    .menu-section {
+        max-width: 100%;
+        margin: 40px 20px 40px 20px;
+        background: #f9f6ef;
+        border-radius: 8px;
+        padding: 20px;
+        font-family: 'Baloo 2', cursive;
     }
 
-    .das-form-section input[type="text"]:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
-    .checkbox-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 24px;
-      margin-bottom: 15px;
-    }
-
-    .checkbox-group label {
-      display: flex;
-      align-items: center;
-      font-size: 1rem;
-    }
-
-    .checkbox-group input {
-      margin-right: 6px;
-    }
-
-    .das-form-section .note {
-      margin-top: 25px;
-      font-size: 0.95rem;
-      color: #6a5b45;
-    }
-
-    .das-menu-section p {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .das-menu-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .das-menu-section ul li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      /* border-bottom: 1px dashed #d2c2ad; */
-      padding: 15px 0;
-      font-size: 1rem;
-    }
-
-    .das-menu-section ul li strong {
-      font-weight: 600;
-      color: #5b4636;
-    }
-
-    .das-menu-section ul li span {
-      font-weight: 600;
-      color: #a67c00;
-      white-space: nowrap;
-      font-size: 25px;
-    }
-
-    .das-menu-section .footer {
-      text-align: center;
-      margin-top: 30px;
-      font-style: italic;
-      color: #7a5f2e;
-      font-size: 1rem;
-    }
-
-    /* Custom Checkbox Không conflict */
-    .custom-checkbox-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 24px;
-      margin-bottom: 15px;
-    }
-
-    .custom-checkbox-group label {
-      position: relative;
-      cursor: pointer;
-      user-select: none;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .custom-checkbox-group input[type="checkbox"] {
-      /* Ẩn checkbox mặc định */
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
-    }
-
-    /* Vẽ ô vuông trên SPAN */
-    .custom-checkbox-group label span::before {
-      content: "";
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      border: 2px solid #d4d4d4;
-      border-radius: 4px;
-      background-color: #fffdf7;
-      margin-right: 8px;
-      vertical-align: middle;
-      transition: all 0.2s ease;
-    }
-
-    /* Khi CHECKED, đổi màu ô và thêm tick */
-    .custom-checkbox-group input[type="checkbox"]:checked+span::before {
-      /* background-color: #a67c00; */
-      /* border-color: #a67c00; */
-    }
-
-    .custom-checkbox-group input[type="checkbox"]:checked+span::after {
-      content: "✓";
-      color: #a67c00;
-      font-size: 2rem;
-      font-weight: bold;
-      position: absolute;
-      left: 1px;
-      top: 50%;
-      transform: translateY(-50%);
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        /* background: #d1c2a1cc; */
+        /* background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat; */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        /* border-bottom: 1.5px solid #9a8666; */
+        /* height: 5.8vh; */
+        height: 12%
     }
 
     .clear-btn {
-      display: flex;
-      width: 100%;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-family: 'Baloo 2', cursive;
-      background-color: #d2bc85;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      margin: 40px auto auto auto;
+        width: 100%;
     }
 
-    .clear-btn:hover {
-      background-color: #8e6800;
+    .random-btn {
+        width: 100%;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
+    .slide-container {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+        /* gap: 40px; */
+        /* margin: 20px; */
+    }
 
-      .menu-container,
-      .signature-section {
-        width: 95vw;
-      }
+    .slide-image img {
+        max-width: 380px;
+        height: auto;
+        border-radius: 16px;
+        margin: 10px 0px -5px;
+        box-shadow: 0 0px 10px rgba(224, 191, 27, 0.36);
+        width: 100%;
+        object-fit: contain;
+    }
+}
 
-      .signature-list {
+@media (max-width: 520px) {
+    .slide-image img {
+        max-width: 380px;
+        height: auto;
+        border-radius: 16px;
+        margin: 0;
+        box-shadow: 0 0px 10px rgba(224, 191, 27, 0.36);
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 500px) {
+    .slide-image img {
+        max-width: 380px;
+        height: auto;
+        border-radius: 16px;
+        margin: 0;
+        box-shadow: 0 0px 10px rgba(224, 191, 27, 0.36);
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+
+@media (max-width: 425px) {
+
+    .signature-list {
         flex-direction: column;
         align-items: center;
-      }
+    }
 
-    } 
-
-    @media (max-width: 720px) {
-
-      .menu-container,
-      .signature-section {
-        width: 95vw;
-      }
-
-      .signature-list {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .das-form-section {
-        max-width: 700px;
+    .das-form-section {
+        max-width: 100%;
         /* margin: 5px auto 50px auto; */
-        margin: 120px 15px 30px 15px; 
+        margin: 120px 15px 30px 15px;
         padding: 30px;
         background: #fdfaf6;
         border: 1px solid #ddd0c0;
@@ -615,421 +1026,633 @@
         font-family: 'Baloo 2', cursive;
         color: #5b4636;
         line-height: 1.6;
-      }
-
-      header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        /* background: #d1c2a1cc; */
-        background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-        backdrop-filter: blur(4px);
-        z-index: 1000;
-        border-bottom: 1.5px solid #9a8666;
-        /* height: 5.8vh; */
-        height: 12%
-      }
     }
 
-    @media (max-width: 425px) {
-
-      .menu-container,
-      .signature-section {
-        width: 95vw;
-      }
-
-      .signature-list {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .das-form-section {
-        max-width: 700px;
-        /* margin: 5px auto 50px auto; */
-        margin: 120px 15px 30px 15px; 
-        padding: 30px;
-        background: #fdfaf6;
-        border: 1px solid #ddd0c0;
-        border-radius: 12px;
+    .menu-section {
+        max-width: 100%;
+        margin: 40px 15px 40px 15px;
+        background: #f9f6ef;
+        border-radius: 8px;
+        padding: 20px;
         font-family: 'Baloo 2', cursive;
-        color: #5b4636;
-        line-height: 1.6;
-      }
+    }
 
-      header {
+    header {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         /* background: #d1c2a1cc; */
-        background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat;
+        /* background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=70') center center/cover no-repeat; */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
         backdrop-filter: blur(4px);
         z-index: 1000;
-        border-bottom: 1.5px solid #9a8666;
+        /* border-bottom: 1.5px solid #9a8666; */
         /* height: 5.8vh; */
         height: 12%
-      }
     }
+
+    .slide-container {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+        /* gap: 40px; */
+        margin: 20px 15px;
+    }
+
+    .slide-image img {
+        max-width: 380px;
+        height: auto;
+        border-radius: 16px;
+        margin: 0;
+        box-shadow: 0 0px 10px rgba(224, 191, 27, 0.36);
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .item-info p {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    .item-info small {
+        font-size: 0.9rem;
+        color: #7b6b54;
+
+    }
+
+    .price-button {
+        font-size: 23px !important;
+        margin-left: 10px;
+    }
+
+    .das-solgan small,
+    .signature-slogan small,
+    .menu-slogan small {
+        display: none;
+    }
+}
   </style>
 </head>
 
 <body>
   <header>
     <div class="nav-container">
-      <div class="logo center">Mr. Thịnh</div>
-      <!-- <nav>
-        <a href="#banner" class="active">Trang Chủ</a>
-        <a href="#menu-section">Menu</a>
-        <a href="#signature-section">Signature</a>
-        <a href="#footer">Liên Hệ</a>
-      </nav> -->
+    <div class="logo center">Mr. Thịnh</div>
+        <nav>
+            <!-- <a href="#das-menu-section">Classic</a>
+            <a href="#bespoke-menu-section">Bespoke Menu</a>
+            <a href="#menu-section">Menu</a>
+            <a href="#signature-section">Signature</a>
+            <a href="#footer">Liên Hệ</a> -->
+        </nav>
     </div>
   </header>
 
   <div class="container">
-    <main>
-    <!-- Banner -->
-    <!-- <section class="banner" id="banner">
-      Chạm
-      <p>Thưởng Thức Cocktail - Coffee - Trà Đậm Đà</p>
-    </section> -->
-
-    <!-- <section class="das-menu-section">
-      <h2>Welcome To My Litte Cocktail Bar</h2>
-      <p>
-        This drink to a lovely, wonderful, gorgeous, amazing person.<br>
-        <small>(Tụi mình dành riêng ly nước xinh xắn này cho người tuyệt vời nhất)</small>
-      </p>
-      <ul>
-        <li>
-          <div><strong>Cocktail</strong><br><small>(Có cồn nhe, và tụi mình sẽ làm theo sở thích của bạn nè)</small></div>
-          <span>79K</span>
-        </li>
-        <li>
-          <div><strong>Mocktail</strong><br><small>(Hông có cồn)</small></div><span>55K</span>
-        </li>
-        <li>
-          <div><strong>Shot</strong><br><small>(Rượu shot: Gin, Tequila, Whisky, Rhum, Vodka,...)</small></div>
-          <span>49K</span>
-        </li>
-        <li>
-          <div><strong>B55 shot</strong><br><small>(Coffee Liqueur, Baileys, Absinth)</small></div><span>49K</span>
-        </li>
-        <li>
-          <div><strong>B53 shot</strong><br><small>(Coffee Liqueur, Baileys, Vodka)</small></div><span>49K</span>
-        </li>
-        <li>
-          <div><strong>Sweetie shot</strong><br><small>(Grenadine, Sambuca, Absinth)</small></div><span>49K</span>
-        </li>
-        <li>
-          <div><strong>Red Eyes shot</strong><br><small>(Sambuca, Baileys, Grenadine)</small></div><span>49K</span>
-        </li>
-        <li>
-          <div><strong>Beer</strong><br><small>(Quán có nhiều đợt bia & giá khác nhau, bạn hỏi tụi mình để có thêm thông
-              tin nhé)</small>
-        </li>
-        <li>
-          <div><strong>Tea</strong><br><small>(Trà trái cây)</small></div><span>36K</span>
-        </li>
-        <li>
-          <div><strong>Snack ngon lành</strong><br><small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></div>
-          <span>30K</span>
-        </li>
-      </ul>
-    </section> -->
-
-    <section class="das-form-section">
-      <!-- <h2>What would you like to enjoy today?</h2> -->
-      <h2>Welcome To My Litte Cocktail Bar</h2>
-      <p class="center">
-        This drink to a lovely, wonderful, gorgeous, amazing person.<br>
-        <small>(Tụi mình dành riêng ly nước xinh xắn này cho người tuyệt vời nhất)</small>
-      </p>
-      <form id="formMenu">
-        <!-- <div class="form-group">
-          <label>
-            Name:
-            <small>(Ghi cho tui nhớ tên bạn nha)</small>
-          </label>
-          <input type="text" name="name" placeholder="Tên của bạn" style="border: none;">
-        </div> -->
-
-        <!-- <p><strong>- How was your day?</strong><br>
-          <small>(Ngày hôm nay của bạn như nào?)</small>
-        </p>
-        <div class="custom-checkbox-group">
-          <label><input type="checkbox" name="mood" value="Cool"> <span>Cool</span></label>
-          <label><input type="checkbox" name="mood" value="Best"> <span>Best</span></label>
-          <label><input type="checkbox" name="mood" value="Sad"> <span>Sad<sppan></label>
-          <label><input type="checkbox" name="mood" value="Sucks"> <span>Sucks</span></label>
-        </div> -->
-
-        <p><strong>- Wat’s your fav spirit?</strong><br>
-          <small>(Loại rượu nền yêu thích của bạn là...)</small>
-        </p>
-        <div class="custom-checkbox-group">
-          <label><input type="checkbox" name="spirit" value="Gin"> <span>Gin</span></label>
-          <label><input type="checkbox" name="spirit" value="Tequila"> <span>Tequila</span></label>
-          <label><input type="checkbox" name="spirit" value="Vodka"> <span>Vodka</span></label>
-          <label><input type="checkbox" name="spirit" value="Rhum"> <span>Rum</span></label>
-          <label><input type="checkbox" name="spirit" value="Whisky"> <span>Whisky</span></label>
-          <label><input type="checkbox" name="spirit" value="Mocktail"> <span>Mocktail</span></label>
+    <main>      
+      <section class="banner" id="banner">
+        <video autoplay muted loop playsinline>
+          <source src="{{'assets/images/backgrond-live/bg_live_banner.mp4'|theme}}" type="video/mp4">
+        </video>
+        <div class="banner-content">
+          <h1>Shake. Stir. Savor.</h1>
+          <p>Stirring Potions, Crafting Moments.</p>
         </div>
+      </section>
 
-        <p><strong>- Wat flavour are yew?</strong><br>
-          <small>(Rồi bạn thích hương vị nào ta?)</small>
-        </p>
-        <div class="custom-checkbox-group">
-          <label><input type="checkbox" name="flavour" value="Fruit"> <span>Fruit (Trái cây)</span></label>
-          <label><input type="checkbox" name="flavour" value="Herb"> <span>Herb (Thảo mộc)</span></label>
-          <label><input type="checkbox" name="flavour" value="Spice"> <span>Spice (Cay)</span></label>
-        </div>
+      <div class="section-with-video">
+        <video autoplay muted loop playsinline class="section-bg-video">
+          <source src="{{'assets/images/backgrond-live/bg_countdown.mp4'|theme}}" type="video/mp4">
+          Trình duyệt của bạn không hỗ trợ video nền.
+        </video>
+          <section class="menu-section" id="tabmenu-section">
+          <div class="menu-header">
+              <h2>What would you like to enjoy today?</h2>
+              <p class="menu-slogan">
+              We’d love to invite you to see what we have for you today<br>
+              <small>(Tụi mình mời bạn iu xem hôm nay chúng tớ có những gì nhé)</small>
+              </p>
+          </div>
 
-        <p><strong>- Da taste you lookin’ for?</strong><br>
-          <small>(Còn mùi vị bạn đang tìm kiếm là gì ha?)</small>
-        </p>
-        <div class="custom-checkbox-group">
-          <label><input type="checkbox" name="taste" value="Sweet"> <span>Sweet (Ngọt)</span></label>
-          <label><input type="checkbox" name="taste" value="Creamy"> <span>Creamy (Béo)</span></label>
-          <label><input type="checkbox" name="taste" value="Spicy"> <span>Spicy (Cay)</span></label>
-          <label><input type="checkbox" name="taste" value="Sour"> <span>Sour (Chua)</span></label>
-        </div>
-        <button type="button" class="clear-btn center">Xóa lựa chọn</button>
-      </form>
-      <!-- <p class="note">
-        HELLO,,,<br>
-        Dành cho những ngày bạn iu cần rịu nhưng lại quá bận, thì Das_h hiện tại đã có ly mang về và giao hàng tận nơi rồi đó nha.<br>
-        Bạn iu cứ inbox Fanpage: DASH hoặc hotline: <strong>0903.692.814</strong> để được hỗ trợ nhiệt tình nhé.
-      </p> -->
-      <p class="footer center">IT’S GOOD TO SEE YOU!</p>
-    </section>
+          <div class="menu-tabs scrollable-tabs">
+              <button class="tab active" data-tab="cocktail">Classic Cocktail</button>
+              <button class="tab" data-tab="shot">Shot</button>
+              <button class="tab" data-tab="beer">Beer</button>
+              <button class="tab" data-tab="coffee">Coffee</button>
+              <button class="tab" data-tab="matcha">Matcha</button>
+              <button class="tab" data-tab="tea">Tea</button>
+              <button class="tab" data-tab="iceblended">Ice Blended</button>
+              <button class="tab" data-tab="fruittea">Fruit Tea</button>
+              <button class="tab" data-tab="milktea">Milk Tea</button>
+              <button class="tab" data-tab="soda">Soda</button>
+          </div>
 
-    
+          <div class="menu-content">
+              <!-- Cocktail Tab -->
+              <div class="tab-content active" id="cocktail">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p class="more-detail"><strong>Martini</strong> <br> <small>(Có cồn nhẹ, và tụi mình sẽ làm theo sở thích của bạn nè)</small></p>
+                      </div>
+                      <button class="price-button">79K</button>
+                  </div>
+                  <div class="item-detail">
+                      <section data-assetkey="subhead-copy"><h2>2. Martini – Sự sang trọng và thanh lịch</h2><p>&nbsp;</p><p>Martini được coi là một trong những loại cocktail mang tính biểu tượng nhất thế giới, với lịch sử và nguồn gốc đầy huyền bí. Một trong những giả thuyết phổ biến nhất cho rằng Martini xuất hiện vào những năm 1860 tại một quán bar ở San Francisco, nơi bartender Jerry Thomas pha chế một thức uống mới gọi là “Martinez” để phục vụ cho một người khách đang chuẩn bị đi đến thành phố Martinez gần đó.&nbsp;</p><p>Martini đã trở thành biểu tượng của sự sang trọng và thanh lịch, đặc biệt khi James Bond – nhân vật trong tác phẩm điện ảnh kinh điển cùng tên, đã lựa chọn nó là thức uống yêu thích. Tên gọi Martini gắn liền với hình ảnh những bữa tiệc xa hoa và những người sành điệu.</p><p><strong>Nguyên liệu:</strong></p><ul><li>75ml rượu Gin</li><li>15ml rượu Vermouth&nbsp;</li><li>1 chút rượu đắng</li><li>1 lát chanh xoắn để trang trí</li></ul><p><strong>Cách pha chế:</strong></p><ul><li><strong>Bước 1:&nbsp;</strong>Cho rượu Gin, rượu Vermouth và rượu đắng vào bình lắc cùng với đá viên.</li><li><strong>Bước 2:&nbsp;</strong>Khuấy đều trong khoảng 15 giây.</li></ul><p><strong>Bước 3:&nbsp;</strong>Lọc ra ly cocktail và trang trí bằng lát chanh xoắn.</p></section><section data-assetkey="article-carousel"><source media="(min-width: 768px)" sizes="(min-width: 1440px) 100vw, (min-width: 1024px) 1024px, (min-width: 768px) 768px" srcset="https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-1650 1650w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-1440 1440w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-1280 1280w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-1024 1024w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-768 768w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-500 500w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-420 420w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-400 400w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-375 375w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-360 360w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-320 320w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-300 300w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-275 275w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-200 200w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/marthini-aspect-ratio-1650-928.jpg?tr=q-80,w-100 100w, "><source data-srcset="" sizes="(min-width: 768px) 768px, (min-width: 500px) 500px, 250px"><img width="1650" height="928" alt="Martini" src="http://cham.dev.com/storage/app/media/uploaded-files/1752494867739.jpeg" class="fr-fic fr-dii" data-result="success"></section>
+                      <button class="collapse-button">▲ Thu gọn ▲</button>
+                  </div>
 
-    <!-- Menu Section -->
-    <!-- <section class="menu-section" id="menu-section">
-      <div class="tabs">
-        <div class="tab active" data-tab="cocktail">Cocktail</div>
-        <div class="tab" data-tab="coffee">Coffee</div>
-        <div class="tab" data-tab="tea">Trà</div>
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p class="more-detail"><strong>Mojito</strong> <br> <small>(Có cồn nhẹ, và tụi mình sẽ làm theo sở thích của bạn nè)</small></p>
+                      </div>
+                      <button class="price-button">79K</button>
+                  </div>
+                  <div class="item-detail">
+                      <section data-assetkey="subhead-copy"><h2>1. Mojito – Biểu tượng của mùa hè</h2><p>&nbsp;</p><p>Mojito xuất hiện từ thế kỷ 16 tại Cuba, được cho là có liên quan đến một loại thức uống gọi là “El Draque,” đặt theo tên của thuyền trưởng Francis Drake. Vào đầu thế kỷ 19, khi Rum Cuba được tinh chế hơn, “El Draque” dần biến đổi thành Mojito, như một loại cocktail nhẹ nhàng hơn với vị ngọt và tươi mát đặc trưng.</p><p>Mojito tượng trưng cho sự thư giãn, niềm vui của mùa hè và phong cách sống chậm rãi, tận hưởng của người Cuba. Với sự kết hợp giữa chanh tươi, bạc hà mát lạnh, và vị ngọt dịu của đường, Mojito mang đến một cảm giác sảng khoái, thanh lọc và tươi mới. Nó gắn liền với những buổi chiều bên bờ biển, những buổi tụ tập bạn bè và những khoảnh khắc tận hưởng cuộc sống, giống như sự vô tư và thoải mái mà người ta tìm thấy ở Havana.&nbsp;</p><p><strong>Nguyên liệu:</strong></p><ul><li>60ml rượu Rum trắng</li><li>10 lá bạc hà tươi</li><li>30ml nước chanh tươi</li><li>15ml siro đường</li><li>60ml nước soda</li><li>Đá viên</li><li>Lát chanh và lá bạc hà để trang trí</li></ul><p><strong>Cách pha chế:</strong></p><ul><li><strong>Bước 1:</strong> Cho lá bạc hà và siro đường vào ly, sau đó nghiền nhẹ để chiết xuất hương thơm từ lá bạc hà.</li><li><strong>Bước 2:&nbsp;</strong>Thêm nước chanh và đá viên vào ly.</li><li><strong>Bước 3:&nbsp;</strong>Đổ rượu Rum trắng lên trên và khuấy nhẹ.</li><li><strong>Bước 4:&nbsp;</strong>Thêm nước soda vào ly và khuấy đều một lần nữa.</li></ul><p><strong>Bước 5:&nbsp;</strong>Trang trí bằng lát chanh và lá bạc hà.</p></section><section data-assetkey="article-carousel"><source media="(min-width: 768px)" sizes="(min-width: 1440px) 100vw, (min-width: 1024px) 1024px, (min-width: 768px) 768px" srcset="https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-1650 1650w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-1440 1440w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-1280 1280w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-1024 1024w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-768 768w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-500 500w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-420 420w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-400 400w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-375 375w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-360 360w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-320 320w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-300 300w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-275 275w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-200 200w, https://ik.imagekit.io/cvygf2xse/chivas/wp-content/uploads/2024/08/mojito-aspect-ratio-1650-928.jpg?tr=q-80,w-100 100w, "><source data-srcset="" sizes="(min-width: 768px) 768px, (min-width: 500px) 500px, 250px"><img width="1650" height="928" alt="Mojito" src="http://cham.dev.com/storage/app/media/uploaded-files/1752494317736.jpeg" class="fr-fic fr-dii" data-result="success"></section>
+                      <button class="collapse-button">▲ Thu gọn ▲</button>
+                  </div>
+              </div>
+
+              <div class="tab-content" id="shot">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Mocktail</strong> <br> <small>(Hông có cồn)</small></p>
+                      </div>
+                      <button class="price-button">55K</button>
+                  </div>
+                  <div class="item-detail">
+                      Mocktail ngọt nhẹ, nhiều vitamin, phù hợp mọi lứa tuổi.
+                  </div>
+              </div>
+
+              <div class="tab-content" id="beer">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Shot</strong> <br> <small>(Gin, Tequila, Whisky, Rhum, Vodka,...)</small></p>
+                      </div>
+                      <button class="price-button">49K</button>
+                  </div>
+                  <div class="item-detail">
+                      Các loại shot mạnh mẽ, đậm vị, dành cho người thích thử thách.
+                  </div>
+              </div>
+
+              <div class="tab-content" id="coffee">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Snack ngon lành</strong> <br> <small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></p>
+                      </div>
+                      <button class="price-button">30K</button>
+                  </div>
+                  <div class="item-detail">
+                      Menu snack thay đổi hàng ngày, luôn tươi mới và hấp dẫn.
+                  </div>
+              </div>
+
+              <div class="tab-content" id="matcha">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Snack ngon lành</strong> <br> <small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></p>
+                      </div>
+                      <button class="price-button">30K</button>
+                  </div>
+                  <div class="item-detail">
+                      Menu snack thay đổi hàng ngày, luôn tươi mới và hấp dẫn.
+                  </div>
+              </div>
+
+              <div class="tab-content" id="tea">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Snack ngon lành</strong> <br> <small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></p>
+                      </div>
+                      <button class="price-button">30K</button>
+                  </div>
+                  <div class="item-detail">
+                      Menu snack thay đổi hàng ngày, luôn tươi mới và hấp dẫn.
+                  </div>
+              </div>
+
+              <div class="tab-content" id="iceblended">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Snack ngon lành</strong> <br> <small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></p>
+                      </div>
+                      <button class="price-button">30K</button>
+                  </div>
+                  <div class="item-detail">
+                      Menu snack thay đổi hàng ngày, luôn tươi mới và hấp dẫn.
+                  </div>
+              </div>
+
+              <div class="tab-content" id="fruittea">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Snack ngon lành</strong> <br> <small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></p>
+                      </div>
+                      <button class="price-button">30K</button>
+                  </div>
+                  <div class="item-detail">
+                      Menu snack thay đổi hàng ngày, luôn tươi mới và hấp dẫn.
+                  </div>
+              </div>
+
+              <div class="tab-content" id="milktea">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Snack ngon lành</strong> <br> <small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></p>
+                      </div>
+                      <button class="price-button">30K</button>
+                  </div>
+                  <div class="item-detail">
+                      Menu snack thay đổi hàng ngày, luôn tươi mới và hấp dẫn.
+                  </div>
+              </div>
+
+              <div class="tab-content" id="soda">
+                  <div class="menu-item">
+                      <div class="item-info">
+                      <p><strong>Snack ngon lành</strong> <br> <small>(Hãy hỏi tụi mình để biết hôm nay có món gì nha)</small></p>
+                      </div>
+                      <button class="price-button">30K</button>
+                  </div>
+                  <div class="item-detail">
+                      Menu snack thay đổi hàng ngày, luôn tươi mới và hấp dẫn.
+                  </div>
+              </div>
+          </div>
+        </section>
       </div>
 
-      <div class="menu-container">
-        <div class="menu-items active" id="cocktail">
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Cosmopolitan</span>
-              <span class="item-price">95,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-              <p>Hương cam và chanh tươi, hấp dẫn.</p>
-            </div>
+      <div class="section-with-video">
+        <video autoplay muted loop playsinline class="section-bg-video">
+          <source src="{{'assets/images/backgrond-live/bg-sale.mp4'|theme}}" type="video/mp4">
+          Trình duyệt của bạn không hỗ trợ video nền.
+        </video>
+        <section class="signature-section" id="signature-section">
+          <h2 class="signature-title" style="padding: 20px 20px 0 20px;">Signature Cocktails</h2>
+          <p class="center signature-slogan" style="padding: 0 20px 20px 20px;">
+              Signature flavors crafted for the most amazing people.<br>
+              <small>(Hương vị độc quyền dành riêng cho những người tuyệt vời nhất)</small>
+          </p>
+          <div class="swiper cocktail-swiper">
+              <div class="swiper-wrapper">
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Mojito</h3>
+                              <ul class="center">
+                                  <li>White Rum</li>
+                                  <li>Mint Sprigs</li>
+                                  <li>White Sugar</li>
+                                  <li>Lime Juice</li>
+                                  <li>Soda Water</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}  " alt="Mojito">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Martini</h3>
+                              <ul class="center">
+                                  <li>Gin</li>
+                                  <li>Dry Vermouth</li>
+                                  <li>Olive or Lemon Twist</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}" alt="Martini">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Martini</h3>
+                              <ul class="center">
+                                  <li>Gin</li>
+                                  <li>Dry Vermouth</li>
+                                  <li>Olive or Lemon Twist</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}" alt="Martini">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Martini</h3>
+                              <ul class="center">
+                                  <li>Gin</li>
+                                  <li>Dry Vermouth</li>
+                                  <li>Olive or Lemon Twist</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}" alt="Martini">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Martini</h3>
+                              <ul class="center">
+                                  <li>Gin</li>
+                                  <li>Dry Vermouth</li>
+                                  <li>Olive or Lemon Twist</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}" alt="Martini">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Martini</h3>
+                              <ul class="center">
+                                  <li>Gin</li>
+                                  <li>Dry Vermouth</li>
+                                  <li>Olive or Lemon Twist</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}" alt="Martini">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Martini</h3>
+                              <ul class="center">
+                                  <li>Gin</li>
+                                  <li>Dry Vermouth</li>
+                                  <li>Olive or Lemon Twist</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}" alt="Martini">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Martini</h3>
+                              <ul class="center">
+                                  <li>Gin</li>
+                                  <li>Dry Vermouth</li>
+                                  <li>Olive or Lemon Twist</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}" alt="Martini">
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="swiper-slide">
+                      <div class="slide-container">
+                          <div class="slide-text">
+                              <h3 class="center">Martini</h3>
+                              <ul class="center">
+                                  <li>Gin</li>
+                                  <li>Dry Vermouth</li>
+                                  <li>Olive or Lemon Twist</li>
+                              </ul>
+                              <!-- <p class="description">
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+
+                                  A refreshing blend of mint, lime, and rum that brings summer to your glass. A refreshing
+                                  blend of mint, lime, and rum that brings summer to your glass. A refreshing blend of mint,
+                                  lime, and rum that brings summer to your glass. A refreshing blend of mint, lime, and rum
+                                  that brings summer to your glass. A refreshing blend of mint, lime, and rum that brings
+                                  summer to your glass.
+                              </p> -->
+                          </div>
+                          <div class="slide-image">
+                              <img src="{{'assets/images/cocktail/6.webp'|theme}}" alt="Martini">
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+              <!-- Navigation -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
           </div>
-
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Mojito</span>
-              <span class="item-price">90,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-              <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
-            </div>
-          </div>
-
-          <div class="menu-item">
-              <div class="item-header">
-                <span class="item-name">Cosmopolitan</span>
-                <span class="item-price">95,000 VND</span>
-                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-              </div>
-              <div class="item-detail">
-                <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-                <p>Hương cam và chanh tươi, hấp dẫn.</p>
-              </div>
-            </div>
-    
-            <div class="menu-item">
-              <div class="item-header">
-                <span class="item-name">Mojito</span>
-                <span class="item-price">90,000 VND</span>
-                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-              </div>
-              <div class="item-detail">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-                <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
-              </div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-header">
-                <span class="item-name">Cosmopolitan</span>
-                <span class="item-price">95,000 VND</span>
-                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-              </div>
-              <div class="item-detail">
-                <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-                <p>Hương cam và chanh tươi, hấp dẫn.</p>
-              </div>
-            </div>
-    
-            <div class="menu-item">
-              <div class="item-header">
-                <span class="item-name">Mojito</span>
-                <span class="item-price">90,000 VND</span>
-                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-              </div>
-              <div class="item-detail">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-                <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
-              </div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-header">
-                <span class="item-name">Cosmopolitan</span>
-                <span class="item-price">95,000 VND</span>
-                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-              </div>
-              <div class="item-detail">
-                <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-                <p>Hương cam và chanh tươi, hấp dẫn.</p>
-              </div>
-            </div>
-    
-            <div class="menu-item">
-              <div class="item-header">
-                <span class="item-name">Mojito</span>
-                <span class="item-price">90,000 VND</span>
-                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-              </div>
-              <div class="item-detail">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-                <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
-              </div>
-            </div>
-
-            <div class="menu-item">
-              <div class="item-header">
-                <span class="item-name">Cosmopolitan</span>
-                <span class="item-price">95,000 VND</span>
-                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-              </div>
-              <div class="item-detail">
-                <img src="https://images.unsplash.com/photo-1510626176961-4b64a3c5b3b1?auto=format&fit=crop&w=400&q=80" alt="Cosmopolitan" />
-                <p>Hương cam và chanh tươi, hấp dẫn.</p>
-              </div>
-            </div>
-    
-            <div class="menu-item">
-              <div class="item-header">
-                <span class="item-name">Mojito</span>
-                <span class="item-price">90,000 VND</span>
-                <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-              </div>
-              <div class="item-detail">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Mojito" />
-                <p>Mát lạnh với lá bạc hà và vị chanh tươi.</p>
-              </div>
-            </div>
-        </div>
-
-        <div class="menu-items" id="coffee">
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Espresso</span>
-              <span class="item-price">40,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=400&q=80" alt="Espresso" />
-              <p>Cà phê đậm đà, nguyên chất.</p>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Cappuccino</span>
-              <span class="item-price">50,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=400&q=80" alt="Cappuccino" />
-              <p>Cà phê với lớp bọt sữa mịn màng.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="menu-items" id="tea">
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Trà Ô Long</span>
-              <span class="item-price">45,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Trà Ô Long" />
-              <p>Trà Ô Long thơm nhẹ, thanh mát.</p>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Trà Hoa Nhài</span>
-              <span class="item-price">50,000 VND</span>
-              <button class="toggle-btn" aria-label="Xem chi tiết">+</button>
-            </div>
-            <div class="item-detail">
-              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Trà Hoa Nhài" />
-              <p>Hương hoa nhài dịu dàng, thơm ngát.</p>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
-    </section> -->
 
-    <!-- Signature Section -->
-    <!-- <section class="signature-section" id="signature-section">
-      <h2>Món Signature</h2>
-      <div class="signature-list">
-        <div class="signature-card">
-          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
-          <h3>Chạm Special Coffee</h3>
-          <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
-        </div>
-        <div class="signature-card">
-          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
-          <h3>Cocktail Sunset</h3>
-          <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
-        </div>
-        <div class="signature-card">
-          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
-          <h3>Chạm Special Coffee</h3>
-          <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
-        </div>
-        <div class="signature-card">
-          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
-          <h3>Cocktail Sunset</h3>
-          <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
-        </div>
-        <div class="signature-card">
-          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Chạm Special Coffee" />
-          <h3>Chạm Special Coffee</h3>
-          <p>Cà phê đặc biệt được pha chế theo công thức riêng, mang hương vị độc đáo và tinh tế.</p>
-        </div>
-        <div class="signature-card">
-          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=400&q=80" alt="Cocktail Sunset" />
-          <h3>Cocktail Sunset</h3>
-          <p>Thức uống cocktail với vị chua ngọt hòa quyện cùng màu sắc rực rỡ như hoàng hôn.</p>
-        </div>
+      <div class="section-with-video">
+        <video autoplay muted loop playsinline class="section-bg-video">
+          <source src="{{'assets/images/backgrond-live/bg_countdown.mp4'|theme}}" type="video/mp4">
+          Trình duyệt của bạn không hỗ trợ video nền.
+        </video>
+        <section class="das-form-section" id="bespoke-menu-section">
+          <h2>Welcome To My Litte Cocktail Bar</h2>
+          <p class="center das-solgan">
+          This drink to a lovely, wonderful, gorgeous, amazing person.<br>
+          <small>(Tụi mình dành riêng ly nước xinh xắn này cho người tuyệt vời nhất)</small>
+          </p>
+          <form id="formMenu">
+              <div class="form-group">
+                  <label>
+                  Name:
+                  <small>(Ghi cho tui nhớ tên bạn nha)</small>
+                  </label>
+                  <input type="text" name="name" placeholder="Tên của bạn" style="border: none;">
+              </div>
+
+              <p><strong>How was your day?</strong><br>
+                  <small>(Ngày hôm nay của bạn như nào?)</small>
+              </p>
+              <div class="custom-checkbox-group">
+                  <label><input type="checkbox" name="mood" value="Best"> <span>Best</span></label>
+                  <label><input type="checkbox" name="mood" value="Cool"> <span>Cool</span></label>
+                  <label><input type="checkbox" name="mood" value="Sad"> <span>Sad<sppan></label>
+                  <label><input type="checkbox" name="mood" value="Sucks"> <span>Sucks</span></label>
+              </div>
+
+              <p><strong>Wat’s your fav spirit?</strong><br>
+                  <small>(Loại rượu nền yêu thích của bạn là...)</small>
+              </p>
+              <div class="custom-checkbox-group">
+                  <label><input type="checkbox" name="spirit" value="Gin"> <span>Gin</span></label>
+                  <label><input type="checkbox" name="spirit" value="Tequila"> <span>Tequila</span></label>
+                  <label><input type="checkbox" name="spirit" value="Vodka"> <span>Vodka</span></label>
+                  <label><input type="checkbox" name="spirit" value="Rhum"> <span>Rum</span></label>
+                  <label><input type="checkbox" name="spirit" value="Whisky"> <span>Whisky</span></label>
+                  <label><input type="checkbox" name="spirit" value="Whisky"> <span>Jagermeiter</span></label>
+                  <label><input type="checkbox" name="spirit" value="Mocktail"> <span>Mocktail</span></label>
+              </div>
+
+              <p><strong>Wat flavour are yew?</strong><br>
+                  <small>(Rồi bạn thích hương vị nào ta?)</small>
+              </p>
+              <div class="custom-checkbox-group">
+                  <label><input type="checkbox" name="flavour" value="Fruit"> <span>Fruit (Trái cây)</span></label>
+                  <label><input type="checkbox" name="flavour" value="Herb"> <span>Herbal (Thảo mộc)</span></label>
+                  <label><input type="checkbox" name="flavour" value="Spicy"> <span>Spicy (Cay)</span></label>
+                  <label><input type="checkbox" name="flavour" value="Smoky"> <span>Smoky (Khói)</span></label>
+              </div>
+
+              <p><strong>Da taste you lookin’ for?</strong><br>
+                  <small>(Còn mùi vị bạn đang tìm kiếm là gì ha?)</small>
+              </p>
+              <div class="custom-checkbox-group">
+                  <label><input type="checkbox" name="taste" value="Sweet"> <span>Sweet (Ngọt)</span></label>
+                  <label><input type="checkbox" name="taste" value="Creamy"> <span>Creamy (Béo)</span></label>
+                  <label><input type="checkbox" name="taste" value="Spicy"> <span>Spicy (Cay)</span></label>
+                  <label><input type="checkbox" name="taste" value="Sour"> <span>Sour (Chua)</span></label>
+                  <label><input type="checkbox" name="taste" value="Bitter"> <span>Bitter (Đắng)</span></label>
+                  <label><input type="checkbox" name="taste" value="Sweet & Sour"> <span>Sweet & Sour (Chua ngọt)</span></label>
+              </div>
+
+              <p><strong>Which glass do you prefer?</strong><br>
+                  <small>(Cuối cùng bạn thích dùng trong ly gì he?)</small>
+              </p>
+              <div class="custom-checkbox-group">
+                  <label><input type="checkbox" name="glass" value="Rock"> <span>Ly Rock</span></label>
+                  <label><input type="checkbox" name="glass" value="Highball"> <span>Ly Highball</span></label>
+                  <label><input type="checkbox" name="glass" value="Cocktail"> <span>Ly Cocktail</span></label>    
+              </div>
+              <div class="button-row">
+                  <button type="button" class="clear-btn center">Xóa chọn lại</button>
+                  <button type="button" class="random-btn center">Uống gì tùy duyên</button>
+              </div>
+          </form>
+          <p class="note">
+              <strong>Dear bạn thân yêu,</strong><br>
+              Uống có trách nhiệm nhé!
+              <!-- Dành cho những ngày bạn iu cần rịu nhưng lại quá bận, thì tớ hiện tại đã có <strong>ly mang về</strong> và <strong>giao hàng tận nơi</strong> rồi đó nha.<br>
+              Bạn iu cứ inbox <strong>Fanpage: Lê Phước Thịnh</strong> hoặc <strong>hotline: 0707.863.088</strong> để được hỗ trợ nhiệt tình nhé. -->
+          </p>
+          <p class="footer center">IT’S GOOD TO SEE YOU!</p>
+        </section>
       </div>
-    </section> -->
+  
     </main>
   </div>
 
@@ -1037,54 +1660,184 @@
   <footer id="footer">
     &copy; Thịnh Làm Web Này Đó :>
   </footer>
-
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script>
     // Chuyển tab
-    const tabs = document.querySelectorAll('.tab');
-    const menus = document.querySelectorAll('.menu-items');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        menus.forEach(m => m.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
-      });
-    });
+const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
 
-    // Toggle mở rộng món
-    document.querySelectorAll('.toggle-btn').forEach(btn => {
-      btn.addEventListener('click', e => {
-        const item = e.target.closest('.menu-item');
-        item.classList.toggle('expanded');
-        // Đổi dấu + thành - khi mở rộng và ngược lại
-        e.target.textContent = item.classList.contains('expanded') ? '−' : '+';
-      });
-    });
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    contents.forEach(c => c.classList.remove('active'));
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
 
-    // Scroll active nav highlight
-    const navLinks = document.querySelectorAll('nav a');
-    window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY + 80;
-      navLinks.forEach(link => {
-        const section = document.querySelector(link.getAttribute('href'));
-        if (section) {
-          if (
-            scrollPos >= section.offsetTop &&
-            scrollPos < section.offsetTop + section.offsetHeight
-          ) {
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-          }
+// Dropdown mô tả
+// const priceButtons = document.querySelectorAll('.price-button');
+// priceButtons.forEach(btn => {
+//   btn.addEventListener('click', () => {
+//     // Tìm phần mô tả ngay sau nút
+//     const detail = btn.parentElement.nextElementSibling;
+//     if (detail.style.display === "block") {
+//       detail.style.display = "none";
+//     } else {
+//       detail.style.display = "block";
+//     }
+//   });
+// });
+
+const priceButtons = document.querySelectorAll('.price-button');
+const nameElements = document.querySelectorAll('.more-detail');
+
+function toggleDetail(element) {
+  // Tìm menu-item chứa phần tử vừa click
+  const menuItem = element.closest('.menu-item');
+  // Tìm item-detail phía sau menu-item
+  const detail = menuItem.nextElementSibling;
+
+  if (detail.style.display === "block") {
+    detail.style.display = "none";
+  } else {
+    detail.style.display = "block";
+  }
+}
+
+// Gán click cho nút giá
+priceButtons.forEach(btn => {
+  btn.addEventListener('click', () => toggleDetail(btn));
+});
+
+// Gán click cho tên món
+nameElements.forEach(name => {
+  name.addEventListener('click', () => toggleDetail(name));
+});
+
+
+// Thu gọn
+const collapseButtons = document.querySelectorAll('.collapse-button');
+collapseButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const detail = btn.parentElement;
+    detail.style.display = "none";
+  });
+});
+
+// Scroll active nav highlight
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 80;
+    navLinks.forEach(link => {
+    const section = document.querySelector(link.getAttribute('href'));
+    if (section) {
+        if (
+        scrollPos >= section.offsetTop &&
+        scrollPos < section.offsetTop + section.offsetHeight
+        ) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
         }
-      });
+    }
     });
-  </script>
+});
 
-  <script>
-    document.querySelector('.clear-btn').addEventListener('click', function() {
-      const form = this.closest('form');
-      form.reset();
-    });
+document.querySelector('.clear-btn').addEventListener('click', function() {
+    const form = this.closest('form');
+    form.reset();
+});
+
+document.querySelector('.random-btn').addEventListener('click', function () {
+    // 1. Lấy tất cả checkbox
+    const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    // 2. Reset tất cả về unchecked
+    allCheckboxes.forEach(cb => cb.checked = false);
+
+    // 3. Lọc theo nhóm
+    const byName = name => Array.from(document.querySelectorAll(`input[name="${name}"]`));
+
+    const moodGroup = byName('mood');
+    const spiritGroup = byName('spirit');
+    const flavourGroup = byName('flavour');
+    const tasteGroup = byName('taste');
+    const glassGroup = byName('glass');
+
+    // 4. Hàm random chọn N phần tử từ 1 array
+    function pickRandom(arr, count) {
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+    }
+
+    // 5. Spirit: chọn đúng 1
+    pickRandom(spiritGroup, 1).forEach(cb => cb.checked = true);
+    pickRandom(moodGroup, 1).forEach(cb => cb.checked = true);
+    pickRandom(glassGroup, 1).forEach(cb => cb.checked = true);
+    pickRandom(flavourGroup, 1).forEach(cb => cb.checked = true);
+    pickRandom(tasteGroup, 1).forEach(cb => cb.checked = true);
+
+    // 6. Flavour & Taste: phải có ít nhất 1 => chọn từ 1 đến toàn bộ
+    // const randFlavourCount = Math.floor(Math.random() * 2) + 1; // 1 hoặc 2
+    // pickRandom(flavourGroup, randFlavourCount).forEach(cb => cb.checked = true);
+
+    // const randTasteCount = Math.floor(Math.random() * 2) + 1; // 1 hoặc 2
+    // pickRandom(tasteGroup, randTasteCount).forEach(cb => cb.checked = true);
+});
+
+const slider = document.querySelector('.menu-tabs');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+
+slider.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 1; // tốc độ kéo, có thể chỉnh
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+var swiper = new Swiper('.cocktail-swiper', {
+  effect: "cards",
+  grabCursor: true,
+  cardsEffect: {
+    slideShadows: false,
+  },
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 30,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: true,
+  },
+//   autoplay: {
+//     delay: 5000,
+//     disableOnInteraction: false
+//   }
+});
+
   </script>
 </body>
 
